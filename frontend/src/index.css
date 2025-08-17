@@ -1,0 +1,229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CreatorClaim Protocol Design System
+Modern web3 aesthetic with glass morphism and vibrant gradients
+All colors MUST be HSL.
+*/
+
+@layer base {
+:root {
+    /* Core Background System */
+    --background: 0 0% 100%;
+    --background-secondary: 0 0% 98%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    /* Glass Morphism Cards */
+    --card: 0 0% 100%;
+    --card-border: 220 13% 91%;
+    --card-foreground: 222.2 47.4% 11.2%;
+    --glass: 0 0% 100% / 0.6;
+    --glass-border: 220 13% 84% / 0.6;
+
+    /* Popovers */
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    /* Brand Colors - Avalanche Red */
+    --primary: 359 78% 58%; /* Avalanche Red */
+    --primary-glow: 0 85% 67%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    /* Accent System */
+    --accent: 359 78% 58%;
+    --accent-glow: 0 85% 67%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Status Colors */
+    --success: 142 76% 36%;
+    --success-glow: 142 86% 56%;
+    --warning: 43 96% 56%;
+    --warning-glow: 43 100% 70%;
+    --destructive: 0 70% 50%;
+    --destructive-glow: 0 85% 67%;
+
+    /* Text Hierarchy */
+    --muted: 220 14% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --text-secondary: 215.4 16.3% 46.9%;
+
+    /* Interactive Elements */
+    --border: 220 13% 91%;
+    --input: 0 0% 100%;
+    --input-border: 220 13% 84%;
+    --ring: 359 78% 58%;
+
+    /* Design Tokens */
+    --radius: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+
+    /* Animation Speeds */
+    --transition-fast: 0.15s ease-out;
+    --transition-normal: 0.3s ease-out;
+    --transition-slow: 0.5s ease-out;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-secondary: linear-gradient(135deg, hsl(220 14% 96%), hsl(220 14% 92%));
+    --gradient-success: linear-gradient(135deg, hsl(142 76% 36%), hsl(142 86% 56%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.08), hsl(var(--primary) / 0.02));
+    
+    /* Shadows & Glows */
+    --shadow-sm: 0 1px 2px hsl(0 0% 0% / 0.06);
+    --shadow: 0 4px 6px hsl(0 0% 0% / 0.08);
+    --shadow-lg: 0 10px 15px hsl(0 0% 0% / 0.1);
+    --shadow-xl: 0 25px 50px hsl(0 0% 0% / 0.12);
+    
+    --glow-primary: 0 0 20px hsl(359 78% 58% / 0.25);
+    --glow-accent: 0 0 30px hsl(0 85% 67% / 0.25);
+    --glow-success: 0 0 20px hsl(142 86% 56% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-variation-settings: "opsz" 32;
+  }
+
+  /* Glass morphism utilities */
+  .glass {
+    background: hsl(var(--glass));
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--glass-border));
+    box-shadow: var(--shadow-lg);
+  }
+
+  .glass-hover {
+    transition: all var(--transition-normal);
+  }
+  
+  .glass-hover:hover {
+    background: hsl(var(--glass));
+    backdrop-filter: blur(30px);
+    border-color: hsl(var(--primary) / 0.3);
+    box-shadow: var(--glow-primary), var(--shadow-xl);
+    transform: translateY(-2px);
+  }
+
+  /* Gradient text utilities */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Animated gradient backgrounds */
+.animated-gradient {
+    background: linear-gradient(270deg, hsl(var(--primary)), hsl(var(--primary-glow)), hsl(8 85% 65%));
+    background-size: 600% 600%;
+    animation: gradientShift 8s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Floating animation for hero elements */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+
+  /* Scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
+  }
+}
