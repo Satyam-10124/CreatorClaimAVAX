@@ -6,7 +6,11 @@
   "scripts": {
     "test": "npx hardhat test",
     "compile": "npx hardhat compile",
-    "deploy": "npx hardhat run scripts/deploy.js"
+    "deploy": "npx hardhat run scripts/deploy.js",
+    "build": "npx hardhat compile",
+    "prestart": "npm run build",
+    "start": "npm --prefix api start",
+    "postinstall": "npm --prefix api ci && npm --prefix frontend ci || true"
   },
   "keywords": [
     "blockchain",
